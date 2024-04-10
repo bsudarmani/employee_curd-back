@@ -8,8 +8,9 @@ const bcrypt=require('bcrypt');
 const router=require('./routers/router.js');
 app.use(cors());
 app.use(express.json());
+const port=process.env.PORT || 8003;
 // require('./db.js');
-const mongoURI='mongodb+srv://sudar:Sudar123@cluster0.brpgvku.mongodb.net/signup?retryWrites=true&w=majority';
+const mongoURI=process.env.DATABASE
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>console.log("connection start")).
 catch((err)=>console.log(err.message));
@@ -87,7 +88,7 @@ app.post('/signup', async (req, res) => {
 });
 app.use(router);
 
-app.listen(8003,()=>
+app.listen(port,()=>
 {
- console.log(`port listen to the 8003`)
+ console.log(`port listen to the ${port}`)
 })
