@@ -57,7 +57,7 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.post('/signup', async (req, res) => {
+app.post('/', async (req, res) => {
   const user = req.body;
   const newUser = new UserModel(user);
 
