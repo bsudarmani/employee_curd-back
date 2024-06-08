@@ -9,7 +9,7 @@ const router=require('./routers/router.js');
 app.use(cors());
 app.use(express.json());
 const port=process.env.PORT || 8003;
-// require('./db.js');
+require('./db.js');
 const mongoURI=process.env.DATABASE
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>console.log("connection start")).
@@ -90,5 +90,5 @@ app.use(router);
 
 app.listen(port,()=>
 {
- console.log(`port listen to the ${port}`)
+ console.log(`port listen to the ${port}`);
 })
