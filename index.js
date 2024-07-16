@@ -70,7 +70,7 @@ app.post('/', async (req, res) => {
       // Hash the user's password before saving it to the database
       bcrypt.hash(user.password, 10, async (err, hash) => {
         if (err) {
-          console.error(err);
+          console.error(err+"serve");
           return res.status(500).json("Server error");
         }
         
